@@ -14,3 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+//Route::get('{zip}/{street}','FlyerController@show');
+
+Route::resource('flyer','FlyerController');
+
+Route::get('flyer/{zip}/{street}','FlyerController@show');
+
+Route::post('{zip}/{street}/file_upload','FlyerController@addPhoto');
+
+
+
+
+
