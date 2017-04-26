@@ -12,7 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (Auth::check()) {
+
+    return view('offers');
+    } else {
+    return redirect('login');
+    }
+    
 });
 
 

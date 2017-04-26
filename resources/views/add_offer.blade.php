@@ -7,12 +7,19 @@
    <hr>
    <div class="row">
 
+
 <!-- start image dropzone -->
 
 
   <div class="form-group">
     <label for="field-4" class="col-md-2">العروض</label>
     <div class="col-md-10">
+@if(Session::has('added'))
+<div class="alert alert-success">تمت الاضافه بنجاح</div>
+@endif
+@if(Session::has('no_images'))
+<div class="alert alert-danger">لم يتم اختيار صور</div>
+@endif
 
      <form enctype="multipart/form-data" method="POST" action="/add_offers">
              

@@ -3,7 +3,7 @@
 @section('content')
 
    
-   <h1>Add Notification</h1>
+   <h1>ارسل اشعارات</h1>
    <hr>
    <div class="row">
 
@@ -17,18 +17,18 @@
       <form enctype="multipart/form-data" method="POST" action="/add_notification" class="col-md-6">
              
         <div class="form-group">
-        <label for="street">Address</label>
+        <label for="street">العنوان</label>
         <input type="text" name="address" class="form-control" value="{{ old('address') }}">
       </div>
 
         <div class="form-group">
-        <label for="street">Message</label>
+        <label for="street">الرساله</label>
         <textarea class="form-control" name="message" placeholder="address">{{ old('message') }}</textarea>
       </div>
 
         <div class="form-group">
         <label for="street"></label>
-        <button type="submit" class="btn btn-primary">Add Notification</button>
+        <button type="submit" class="btn btn-primary">ارسا اشعار</button>
       </div>
 
 

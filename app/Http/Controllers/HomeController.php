@@ -82,8 +82,13 @@ class HomeController extends Controller
           if (count(Session::get('images')) > 0) {
 
               $images = Session::get('images');
-              dd($images);
+
               foreach ($images as $key => $value) {
+
+                 \App\Photos::create(['path'=>url('thumnails'.'/'.$value) ,'name'=>$value]);
+
+                Session::flash('added','added successfully');
+                return redirect()->back();
 
               }
 

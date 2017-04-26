@@ -101,7 +101,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <ul class="dropdown-menu dropdown-menu-default">
 
                         <li>
-                            <a href="{{ url('admin/logout') }}">
+                            <a href="{{  url('/logout')  }}">
                             <i class="icon-key"></i> Log Out </a>
                         </li>
                     </ul>
