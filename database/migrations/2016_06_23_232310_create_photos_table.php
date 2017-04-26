@@ -17,6 +17,7 @@ class CreatePhotosTable extends Migration
             $table->integer('flyer_id');
             //->unsigned();
             $table->string('path');
+            $table->string('name');
         //    $table->foreign('flyer_id')->refrences('id')
          //                              ->on('flyers')
          //                              ->onDelete('cascade');
