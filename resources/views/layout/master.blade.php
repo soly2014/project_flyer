@@ -220,47 +220,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             @yield('content')
             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -342,7 +303,7 @@ jQuery(document).ready(function() {
    Index.initChat();
    Index.initMiniCharts();
    Tasks.initDashboardWidget();
-   ChartsAmcharts.init(); // init demo charts
+   Portfolio.init();
 
 });
 </script>

@@ -33,21 +33,17 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
 
-
-
-
-
 <link href="{{ url('adminstration') }}/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
-<link href="{{ url('adminstration') }}/assets/admin/pages/css/login.css" rel="stylesheet" type="text/css"/>
+<link href="{{ url('adminstration') }}/assets/admin/pages/css/login-rtl.css" rel="stylesheet" type="text/css"/>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME STYLES -->
-<link href="{{ url('adminstration') }}/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
-<link href="{{ url('adminstration') }}/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="{{ url('adminstration') }}/assets/global/css/components-rtl.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="{{ url('adminstration') }}/assets/global/css/plugins-rtl.css" rel="stylesheet" type="text/css"/>
 <link href="{{ url('adminstration') }}/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
 <link href="{{ url('adminstration') }}/assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" id="style_color"/>
-<link href="{{ url('adminstration') }}/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="{{ url('adminstration') }}/assets/admin/layout/css/custom-rtl.css" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -86,30 +82,25 @@ License: You must have a valid license purchased only from themeforest(the above
               <!-- end display errors -->
 
                <!-- display validation errors -->
-              @if (Session::has('not_admin'))
-                  <div class="alert alert-danger">
-                      You are not an admin and your credetial has been recorded asshole..
-                  </div>
-              @endif
-              <!-- end display errors -->
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif  
+            <!-- end display errors -->
 
             <label class="control-label visible-ie8 visible-ie9">البريد الالكتروني</label>
             <input class="form-control form-control-solid placeholder-no-fix {{ $errors->has('email') ? ' has-error' : '' }}" type="text" autocomplete="off" value="{{ old('email') }}" placeholder="البريد الالكتروني" name="email"/>
-           @if ($errors->has('email'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
-                </span>
-            @endif
+           
 
         </div>
         <div class="form-group">
             <label class="control-label visible-ie8 visible-ie9">رقم المرور</label>
             <input class="form-control form-control-solid placeholder-no-fix {{ $errors->has('password') ? ' has-error' : '' }}" type="password" value="{{ old('password') }}" autocomplete="off" placeholder="رقم المرور" name="password"/>
-           @if ($errors->has('email'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
-                </span>
-            @endif
 
         </div>
         <div class="form-actions">

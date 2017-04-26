@@ -92,7 +92,8 @@ Portfolio
 }
 
 .mix-grid .mix a.mix-preview {
-  right: 50%;
+  right: 40%;
+  top:30%;
   margin-right: 5px;
 }
 

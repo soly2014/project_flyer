@@ -51,7 +51,7 @@ class HomeController extends Controller
         $thum = public_path('thumnails'.'/'.$name);
 
         $img = Image::make($url)
-              ->fit(175)
+              ->resize(230,173)
               ->save($thum);
 
         \App\Photos::create(['path'=>url('thumnails'.'/'.$name) ,'name'=>$name]);
