@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Flyer;
 use App\Photos;
 use Image;
+use Session;
 
 class HomeController extends Controller
 {
@@ -31,10 +32,16 @@ class HomeController extends Controller
     }
 
 
+
     public function addOffer()
     {
+
+        Session::set('images',[]);
         return view('add_offer');
+
     }
+
+
 
 
     public function postOffer(Request $request, Flyer $flyer)
@@ -54,26 +61,66 @@ class HomeController extends Controller
               ->resize(230,173)
               ->save($thum);
 
-        \App\Photos::create(['path'=>url('thumnails'.'/'.$name) ,'name'=>$name]);
 
 
-        return redirect()->back();  
+         $old = Session::get('images');
+        Session::set('images',array_prepend($old,$name));
+
+
+       // \App\Photos::create(['path'=>url('thumnails'.'/'.$name) ,'name'=>$name]);
+
+
+     return Session::get('images');
 
         }
 
+
+
+    public function postOffers(Request $request)
+      {
+          
+          if (count(Session::get('images')) > 0) {
+
+              $images = Session::get('images');
+              dd($images);
+              foreach ($images as $key => $value) {
+
+              }
+
+          } else {
+
+                Session::flash('no_images','No Images');
+                return redirect()->back();
+          }
+          
+
+      }  
 
 
 
       public function clearImage(Request $request)
     {
-        $image = \App\Photos::where('name',$request->file)->first();
 
-        if ($image) {
-            
-            $image->delete();
-        }
 
-        return response()->json(['success'=>true]);
+     $filename = $request->file;
+     $new_session = Session::get('images');
+
+     foreach ($new_session as $key => $value) {
+
+            if(in_array($filename, array_values($new_session))) {
+
+                unset($new_session[$key]);
+
+            }
+
+     }
+
+     Session::set('images',$new_session);
+
+     return Session::get('images');
+
+
+
     }  
 
 

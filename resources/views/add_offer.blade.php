@@ -3,7 +3,7 @@
 @section('content')
 
    
-   <h1>Add Your Offer</h1>
+   <h1>اضافه عرض</h1>
    <hr>
    <div class="row">
 
@@ -11,15 +11,17 @@
 
 
   <div class="form-group">
-    <label for="field-4" class="col-md-2">Images</label>
+    <label for="field-4" class="col-md-2">العروض</label>
     <div class="col-md-10">
 
-{{--      <form enctype="multipart/form-data" method="POST" action="/flyer" class="col-md-6 dropzone" id="myAwesomeDropzone">
- --}}            
-            <div class="dropzone dropzone-previews" id="my-awesome-dropzone"></div>
+     <form enctype="multipart/form-data" method="POST" action="/add_offers">
+             
+            <div class="dropzone dropzone-previews" id="my-awesome-dropzone"></div><br><br>
 
-{{--      </form>
- --}}
+            <button type="submit" class="btn btn-success"> اضف العروض </button>
+
+      </form>
+ 
 
     </div>
   </div>

@@ -80,6 +80,7 @@
                       </div>
                     </div>
 
+
                @foreach($photos as $photo)
                     <div class="col-md-3 col-sm-4 mix category_2">
                       <div class="mix-inner">

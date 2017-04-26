@@ -46,6 +46,8 @@ Route::get('/api/images', function()
        return response()->json(['images'=>$paths]);
 });
 
+Route::post('add_offers','HomeController@postOffers');
+
 
 Route::post('/add_tokens', function(Illuminate\Http\Request $request)
 {
